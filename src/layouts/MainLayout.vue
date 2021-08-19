@@ -96,19 +96,18 @@ export default {
         $store.dispatch("characters/fetchCharacters");
       },
       getDataFiltered(filter) {
-        if (currentRoute === "/characters")
+        console.log(currentRoute);
+        if (currentRoute == "/")
           $store.dispatch("characters/fetchFilter", filter);
         else $store.dispatch("locations/fetchFilter", filter);
       },
       setSearchState(state) {
-        if (currentRoute == "/characters")
-          $store.commit("characters/setSearch", state);
-        else $store.dispatch("locations/fetchFilter", filter);
+        if (currentRoute == "/") $store.commit("characters/setSearch", state);
+        else $store.commit("locations/setSearch", state);
       },
       clearSearch() {
-        if (currentRoute.value == "/characters")
-          $store.commit("characters/clearSearch");
-        else $store.dispatch("locations/fetchFilter", filter);
+        if (currentRoute.value == "/") $store.commit("characters/clearSearch");
+        else $store.commit("locations/clearFilter");
       },
     };
   },

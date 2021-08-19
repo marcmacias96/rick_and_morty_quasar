@@ -18,6 +18,6 @@ export function setSearch(state, isSearch){
     state.isSearch = isSearch
 }
 
-export function clearSearch(State){
+export function clearFilter(State){
     state.locations = []
 }
