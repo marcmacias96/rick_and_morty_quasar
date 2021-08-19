@@ -64,7 +64,8 @@
 
 <script>
 import { useStore } from "vuex";
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import { useRoute } from "vue-router";
 export default {
   setup() {
     const $store = useStore();
@@ -83,20 +84,32 @@ export default {
       },
     ];
 
+    const currentRoute = computed(() => {
+      const route = useRoute();
+      console.log(route.path);
+      return useRoute.name;
+    });
     return {
+      currentRoute,
       drawer: ref(false),
       menuList,
       getData() {
         $store.dispatch("characters/fetchCharacters");
       },
       getDataFiltered(filter) {
-        $store.dispatch("characters/fetchFilter", filter);
+        if (currentRoute.value === "/characters")
+          $store.dispatch("characters/fetchFilter", filter);
+        else $store.dispatch("locations/fetchFilter", filter);
       },
       setSearchState(state) {
-        $store.commit("characters/setSearch", state);
+        if (currentRoute.value == "/characters")
+          $store.commit("characters/setSearch", state);
+        else $store.dispatch("locations/fetchFilter", filter);
       },
       clearSearch() {
-        $store.commit("characters/clearSearch");
+        if (currentRoute.value == "/characters")
+          $store.commit("characters/clearSearch");
+        else $store.dispatch("locations/fetchFilter", filter);
       },
     };
   },

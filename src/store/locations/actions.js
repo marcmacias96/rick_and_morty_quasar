@@ -10,7 +10,7 @@ export async function fetchLocations({commit}){
 }
 
 export function fetchMore({ commit,state }, done) {
-    if (state.info.next != null && !state.isSearch ) {
+    if (state.info != state.page && !state.isSearch ) {
          try {
             commit('setPage')
             api.get('/location/?page=' + state.page).then(function (response) {
@@ -24,5 +24,16 @@ export function fetchMore({ commit,state }, done) {
     } else {
         done()
     }
+
+    
    
+}
+export async function fetchFilter({commit}, filter){
+    try {
+        const response = await api.get('/location/?name='+ filter)
+        commit('setData',response.data)
+    } catch (error) {
+        console.error(error)
+    }
+        
 }

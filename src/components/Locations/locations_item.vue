@@ -1,17 +1,9 @@
 <template>
-  <div class="bg-grey-9 rounded-borders row">
-    <div class="col-12">
-      <q-img
-        :src="image"
-        fit="cover"
-        class="rounded-borders"
-        style="min-width: 140px; height: 220px"
-      />
+  <div class="bg-grey-9 rounded-borders row q-mt-lg">
+    <div class="col-12 q-gutter-md justify-center bg-white text-black">
+      <div class="text-h5 text-weight-bolder">{{ name }}</div>
     </div>
     <div class="col-12 text-white q-gutter-y-sm q-pa-md">
-      <div class="row q-gutter-md justify-center">
-        <div class="text-h4 text-weight-bolder">{{ name }}</div>
-      </div>
       <div class="column">
         <div class="text-h7 text-grey text-weight-regular">Tipo</div>
         <div class="text-h6 text-weight-medium">{{ type }}</div>

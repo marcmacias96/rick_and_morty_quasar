@@ -5,21 +5,23 @@
       <h3 class="text-weight-bolder mobile-only">Locations</h3>
     </div>
 
-    <div class="row q-gutter-md justify-center">
-      <div
-        class="col-lg-3 col-md-5 col-sm-5 col-xs-10"
-        v-for="location in locationsState"
-        :key="location.id"
-      >
-        <location-item
-          :image="location.url"
-          :name="location.name"
-          :type="location.type"
-          :dimension="location.dimension"
-          :residents="location.residents.length"
-        />
+    <q-infinite-scroll @load="getMore" class="column">
+      <div class="row q-gutter-y-md q-gutter-x-lg justify-center">
+        <div
+          class="col-lg-3 col-md-5 col-sm-5 col-xs-10"
+          v-for="location in locationsState"
+          :key="location.id"
+        >
+          <location-item
+            :image="location.url"
+            :name="location.name"
+            :type="location.type"
+            :dimension="location.dimension"
+            :residents="location.residents.length"
+          />
+        </div>
       </div>
-    </div>
+    </q-infinite-scroll>
   </q-page>
 </template>
 <script>
@@ -40,6 +42,9 @@ export default {
     });
     return {
       locationsState,
+      getMore(index, done) {
+        $store.dispatch("locations/fetchMore", done);
+      },
     };
   },
 
