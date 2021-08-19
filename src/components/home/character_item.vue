@@ -1,8 +1,9 @@
 <template>
   <div class="bg-grey-9 rounded-borders row">
-    <div class=""></div>
-    <q-img :src="image" style="max-width: 600px; height: 100px" fit="cover" />
-    <div class="col-auto q-py-sm q-ml-md">
+    <div class="col-auto">
+      <q-img :src="image" height="300px" width="220px" fit="cover" />
+    </div>
+    <div class="col-5 q-py-sm q-ml-md">
       <div class="text-weight-bolder text-h5 text-white">{{ name }}</div>
       <div class="row q-py-sm items-center">
         <div class="col-1">
