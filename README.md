@@ -1,4 +1,9 @@
-# Rick And Morty (rick_and_morty)
+# Rick And Morty Characters (Vue3 Quasar2 Vuex3)
+
+## 🔥 [Live Preview](https://lnkd.in/ephtVXHu)
+
+### Screenshot
+<img src="https://github.com/marcmacias96/rick_and_morty_quasar/blob/master/screens/screen1.png" alt="Home page">
 
 Quasar app
 
