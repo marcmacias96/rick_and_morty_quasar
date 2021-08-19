@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import CharacterItem from "../components/home/character_item.vue";
+import CharacterItem from "../components/Characters/character_item.vue";
 import { computed } from "vue";
 import { useStore } from "vuex";
 export default {

@@ -2,6 +2,7 @@ import { store } from 'quasar/wrappers'
 import { createStore } from 'vuex'
 
 import characters from './characters'
+import locations from './locations'
 
 /*
  * If not building with SSR mode, you can
@@ -15,7 +16,8 @@ import characters from './characters'
 export default store(function (/* { ssrContext } */) {
   const Store = createStore({
     modules: {
-      characters
+      characters,
+      locations
     },
 
     // enable strict mode (adds overhead!)
