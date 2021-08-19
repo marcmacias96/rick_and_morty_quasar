@@ -1,13 +1,14 @@
 <template>
   <q-page class="bg-black">
     <div class="col q-my-xl flex flex-center bg-white">
-      <h1 class="text-weight-bolder">Characters</h1>
+      <h1 class="text-weight-bolder desktop-only">Characters</h1>
+      <h3 class="text-weight-bolder mobile-only">Characters</h3>
     </div>
     <div>
       <q-infinite-scroll @load="getMore" class="column">
-        <div class="row justify-center q-px-xl q-gutter-x-xl q-gutter-y-md">
+        <div class="row justify-center q-px-xl q-gutter-x-lg q-gutter-y-md">
           <div
-            class="col-lg-5 col-md-5 col-sm-12 col-12"
+            class="col-lg-5 col-md-5 col-sm-5 col-12"
             v-for="character in charactersState"
             :key="character.id"
           >
